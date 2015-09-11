@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- group with single selected item so only one item is highlighted in the nav menu -->
+  <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/drawer_home"
+        android:icon="@drawable/home"
+        android:title="@string/text_home"/>
+
+    <item
+        android:id="@+id/drawer_cart"
+        android:icon="@drawable/add_to_cart"
+        android:title="@string/label_cart"/>
+
+    <item
+        android:id="@+id/drawer_orders"
+        android:icon="@drawable/add_to_cart"
+        android:title="@string/label_order"/>
+  </group>
+</menu>

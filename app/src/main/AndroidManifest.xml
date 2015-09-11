@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moengage.demo.app" >
+
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+  <permission android:name="com.moengage.demo.app.permission.C2D_MESSAGE"  android:protectionLevel="signature" />
+  <uses-permission android:name="com.moengage.demo.app.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".MoEngageDemoApp"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".SplashScreen"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:configChanges="orientation|screenSize"
+            android:name=".LandingScreen"
+            android:label="@string/label_listing" >
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="moengage"
+                    android:host="category" />
+             </intent-filter>
+        </activity>
+
+
+    <!-- MANDATORY FIELD: APP ID AS SEEN ON MOENGAGE DASHBOARD APP SETTINGS PAGE -->
+        <meta-data
+            android:name="APP_ID"
+            android:value="78FL7RI8NHROB3HLU4X42O44" />
+        <!-- MANDATORY FIELD: SENDER ID , i.e. THE PROJECT NUMBER AS MENTIONED ON GOOGLE CLOUD CONSOLE PROJECTS PAGE -->
+        <meta-data
+            android:name="SENDER_ID"
+            android:value="id:956771484318" />
+
+        <!-- MANDATORY FIELD: THE NOTIFICATION SMALL ICON WHICH WILL BE USED TO SET TO NOTIFICATIONS POSTED -->
+        <meta-data
+            android:name="NOTIFICATION_ICON"
+            android:value="@drawable/ic_stat_moe" />
+
+        <!-- MANDATORY FIELD: THE NOTIFICATION LARGE ICON WHICH WILL BE USED TO SET TO NOTIFICATIONS POSTED -->
+        <meta-data
+            android:name="NOTIFICATION_LARGE_ICON"
+            android:value="@mipmap/ic_launcher" />
+
+
+        <meta-data
+            android:name="NOTIFICATION_COLOR"
+            android:value="@color/color_primary" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.moengage.demo.app" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.moengage.worker.MoEGCMListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.moengage.receiver.MoEInstanceIDListener"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+
+        <!-- MOENGAGE RECEIVER FOR RECEIVING INSTALLATION INTENT -->
+        <receiver android:name="com.moe.pushlibrary.InstallReceiver" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <!-- MOENGAGE RECEIVER FOR RECEIVING APP UPDATE INTENT -->
+        <receiver android:name="com.moe.pushlibrary.AppUpdateReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <data
+                    android:path="com.moengage.demo.app"
+                    android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- The underlying content provider -->
+        <provider android:name="com.moe.pushlibrary.providers.MoEProvider"
+            android:authorities="com.moengage.demo.app.moengage.provider"
+            android:exported="false" />
+
+        <activity
+            android:name="com.moe.pushlibrary.activities.MoEActivity"
+            android:label=".LandingScreen"
+            android:parentActivityName=".LandingScreen" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LandingScreen" />
+        </activity>
+
+    </application>
+
+</manifest>

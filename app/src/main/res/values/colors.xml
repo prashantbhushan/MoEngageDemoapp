@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="dim_black">#64000000</color>
+  <color name="color_primary">#1874bd</color>
+  <color name="color_secondary">#00b8ff</color>
+  <color name="color_ascent">#ff48beab</color>
+  <color name="color_warn">#ffee2c3b</color>
+  <color name="text_color_primary">#fff</color>
+  <color name="text_color_inverse">#000</color>
+  <color name="moe_notification_color">#ff1874bd</color>
+</resources>
