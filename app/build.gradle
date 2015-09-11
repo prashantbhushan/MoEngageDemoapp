@@ -28,7 +28,7 @@ android {
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile 'com.android.support:appcompat-v7:22.2.1'
-  compile 'com.moengage:moe-android-sdk:5.3.05'
+  compile 'com.moengage:moe-android-sdk:5.3.07'
   compile 'com.moengage:addon-inbox:2.0.2+'
   compile 'com.google.android.gms:play-services-gcm:7.5.0'
   compile 'com.google.android.gms:play-services-location:7.8.0'
