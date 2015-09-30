@@ -18,7 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.widget.Toast;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 import java.util.ArrayList;
 
 public class LandingScreen extends BaseActivity implements LoaderManager.LoaderCallbacks<ArrayList<Category>>, NavigationView.OnNavigationItemSelectedListener,
@@ -42,31 +41,9 @@ public class LandingScreen extends BaseActivity implements LoaderManager.LoaderC
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_category_landing);
 
-    //String url = "https://api.linkedin.com/v1/people/~";
-    //
-    //APIHelper apiHelper = APIHelper.getInstance(getApplicationContext());
-    //apiHelper.getRequest(this, url, new ApiListener() {
-    //  @Override public void onApiSuccess(ApiResponse apiResponse) {
-    //    try{
-    //      JSONObject resp = apiResponse.getResponseDataAsJson();
-    //      helper.setUserAttribute(MoEHelperConstants.USER_ATTRIBUTE_USER_FIRST_NAME, resp.getString("firstName"));
-    //      helper.setUserAttribute(MoEHelperConstants.USER_ATTRIBUTE_USER_LAST_NAME, resp.getString("lastName"));
-    //      helper.setUserAttribute(MoEHelperConstants.USER_ATTRIBUTE_UNIQUE_ID, resp.getString("id"));
-    //
-    //      JSONObject profileReq = resp.getJSONObject("siteStandardProfileRequest");
-    //      helper.setUserAttribute("LIN_PROFILE_URL", profileReq.getString("url"));
-    //    }catch(Exception e){
-    //      Log.e("LandingScreen", "APIHelper", e);
-    //    }
-    //
-    //  }
-    //
-    //  @Override public void onApiError(LIApiError liApiError) {
-    //    // Error making GET request!
-    //    Log.d(TAG, "response:"+ liApiError.getMessage());
-    //    helper.trackEvent("dataFetchFailed", new PayloadBuilder().putAttrDate("attemptedOn", new Date()).build());
-    //  }
-    //});
+
+    Bundle extras = getIntent().getExtras();
+
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
@@ -94,7 +71,7 @@ public class LandingScreen extends BaseActivity implements LoaderManager.LoaderC
     navigate(mNavItemId);
 
     Intent intent = getIntent();
-    Bundle extras = intent.getExtras();
+
     if(null != extras && extras.containsKey(EXTRA_CATEGORY_LIST)) {
       categoryArrayList = extras.getParcelableArrayList(EXTRA_CATEGORY_LIST);
       showCategories(categoryArrayList);

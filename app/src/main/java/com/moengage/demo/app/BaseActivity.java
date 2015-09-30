@@ -74,7 +74,14 @@ public class BaseActivity  extends AppCompatActivity {
       progressView.setVisibility(View.GONE);
       progressView.setOnClickListener(null);
     }
-
   }
+
+  protected void changeLoadingText(String message){
+    if( null != loadingMessage){
+      loadingMessage.setText(message);
+    }
+  }
+
+
 
 }

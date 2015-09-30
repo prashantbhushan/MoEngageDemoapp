@@ -113,6 +113,14 @@ public class MoEngageDemoApp extends Application {
     return new Firebase("https://imagehoster.firebaseio.com/uid/"+uid+uri);
   }
 
+  public boolean userIsLoggedIn(){
+    return getSharedPreferences().contains("loggedIn");
+  }
+
+  public void setUserLoggedIn(){
+    getSharedPreferences().edit().putBoolean("loggedIn", true).commit();
+  }
+
   public List<Product> orderHistory;
 
   public List<Product> cartList;

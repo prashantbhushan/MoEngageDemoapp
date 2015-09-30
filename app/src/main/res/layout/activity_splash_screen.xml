@@ -19,13 +19,14 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-      <ImageView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="50dp"
-          android:layout_gravity="center"
-          android:src="@drawable/logo"
-          android:id="@+id/logo"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"
+            android:id="@+id/logo"/>
+
 
       <TextView android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -36,15 +37,17 @@
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="@string/text_welcome"/>
 
-      <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48dp"
-          android:id="@+id/btnGetStarted" android:minWidth="240dp"
-          android:layout_gravity="center" android:text="Go Ahead"
-          android:layout_margin="50dp" android:background="@color/color_secondary"/>
-
-      <!--<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="48dp"-->
-          <!--android:id="@+id/btnGetStarted" android:minWidth="240dp"-->
-          <!--android:layout_gravity="center"-->
-          <!--android:layout_margin="50dp" android:background="@drawable/linkedin_signin"/>-->
+      <Button
+          android:id="@+id/sign_in_button"
+          android:layout_marginTop="15dp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:drawablePadding="24dp"
+          android:drawableLeft="@drawable/btn_google_light_normal"
+          android:paddingRight="24dp"
+          android:background="#ffcc0000"
+          android:layout_gravity="center"
+          android:text="@string/common_signin_button_text_long" />
 
     </LinearLayout>
   </ScrollView>
