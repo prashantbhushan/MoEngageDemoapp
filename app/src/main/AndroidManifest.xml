@@ -45,9 +45,14 @@
 
 
     <!-- MANDATORY FIELD: APP ID AS SEEN ON MOENGAGE DASHBOARD APP SETTINGS PAGE -->
-    <meta-data
-        android:name="APP_ID"
-        android:value="78FL7RI8NHROB3HLU4X42O44"/>
+    <!--<meta-data-->
+        <!--android:name="APP_ID"-->
+        <!--android:value="78FL7RI8NHROB3HLU4X42O44"/>-->
+
+      <meta-data
+          android:name="APP_ID"
+          android:value="NBZ7V0U8Y3KODMQL3ZDEI4FM"/>
+
     <!-- MANDATORY FIELD: SENDER ID , i.e. THE PROJECT NUMBER AS MENTIONED ON GOOGLE CLOUD CONSOLE PROJECTS PAGE -->
     <meta-data
         android:name="SENDER_ID"
